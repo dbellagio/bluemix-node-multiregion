@@ -53,7 +53,7 @@ var cfenv = require('cfenv');
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
-var weather_base_url = appEnv.getServiceURL("multiregion_weatherinsights");
+var weather_base_url = appEnv.getServiceURL("super-multiregion-weatherinsights");
 
 var REGIONS = {
     "ibm:yp:us-south": "Dallas",
@@ -63,7 +63,7 @@ var REGIONS = {
 
 var region = REGIONS[process.env.BLUEMIX_REGION];
 if (typeof region === "undefined") {
-    region = 'Sydney';
+    region = 'Dallas';
 }
 
 var GEOCODES = {
@@ -83,7 +83,7 @@ setDayIndicator();
 // poll the weather insights service every 10 minutes to update the day_ind
 setInterval(setDayIndicator, 10 * 60 * 1000); //every 10 minutes
 
-var cloudant_creds = appEnv.getServiceCreds("multiregion_cloudant");
+var cloudant_creds = appEnv.getServiceCreds("super-multiregion-cloudant");
 
 var Cloudant = require('cloudant');
 var cloudant_client = Cloudant({
