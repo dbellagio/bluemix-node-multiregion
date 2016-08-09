@@ -63,7 +63,7 @@ var REGIONS = {
 
 var region = REGIONS[process.env.BLUEMIX_REGION];
 if (typeof region === "undefined") {
-    region = 'Dallas';
+    region = 'Sydney';
 }
 
 var GEOCODES = {
